@@ -1,21 +1,18 @@
-//lsb.h
-#include<stdio.h>
+//program to check Least Significant Bit (LSB) of a number is set or not.
+#include <stdio.h>
+
 int main()
 {
-    lsb();
-}
-
-//lsb.c
-#include<stdio.h>
-#include "lsb.h"
- void lsb()
- {
-    int num;
-    //user input
-    printf("Enter number: ");
-    scanf("%d", &num);
-    if(num & 1)
-        printf("LSB set is (1) %d\n");
+    int a=345;
+    if(a&1)
+    {
+        printf("set is LSB");
+    }
     else
-        printf("LSB set  is (0)%d\n");
+    {
+        printf("set is not LSB");
+    }
+
+    return 0;
 }
+`
