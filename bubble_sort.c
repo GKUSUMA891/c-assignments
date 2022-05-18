@@ -1,36 +1,33 @@
-#include<stdio.h>    
-void display(int a[], int n) 
-{  
-	int i;  
-	for(i=0;i<n;i++)    
-	{    
-		printf("%d ",a[i]);    
-	}        
-}  
-void bubble(int a[], int n)   
-{  
-	int i, j, temp;  
-	for(i=0;i<n;i++)    
-	{    
-		for(j=i+1;j<n;j++) 
-		{
-			if(a[i]>a[j])    
-			{    
-				temp=a[i];    
-				a[i]=a[j];    
-				a[j]=temp;     
-			}     
-		}     
-	}     
-}  
-int main ()    
-{    
-	int i, j,temp;     
-	int a[5]={ 23,12,32,11,42};     
-	int n=sizeof(a)/sizeof(a[0]);   
-	printf("Before sorting array elements are:\n");  
-	display(a, n);  
-	bubble(a, n);  
-	printf("\nAfter sorting array elements are:\n");    
-	display(a, n);  
-}    
+// implementation of Bubble sort
+#include <stdio.h>
+void swap(int* xp, int* yp)
+{
+	int temp = *xp;
+	*xp = *yp;
+	*yp = temp;
+}
+void bubbleSort(int arr[], int n)
+{
+	int i, j;
+	for (i = 0; i < n - 1; i++)
+
+		for (j = 0; j < n - i - 1; j++)
+			if (arr[j] > arr[j + 1])
+				swap(&arr[j], &arr[j + 1]);
+}
+void printArray(int arr[], int size)
+{
+	int i;
+	for (i = 0; i < size; i++)
+		printf("%d ", arr[i]);
+	printf("\n");
+}
+int main()
+{
+	int arr[] = { 64, 34, 25, 12, 22, 11, 90 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+	bubbleSort(arr, n);
+	printf("Sorted array: \n");
+	printArray(arr, n);
+	return 0;
+}
